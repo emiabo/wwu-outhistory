@@ -1,0 +1,70 @@
+{
+	"name": "TabberNeue",
+	"version": "1.1.0",
+	"author": [
+		"alistair3149",
+		"Eric Fortin",
+		"Alexia E. Smith"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:TabberNeue",
+	"descriptionmsg": "tabberneue-desc",
+	"type": "parserhook",
+	"license-name": "GPL-3.0-or-later",
+	"requires": {
+		"MediaWiki": ">= 1.35.0"
+	},
+	"MessagesDirs": {
+		"TabberNeue": [
+			"/i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"TabberNeue\\TabberNeueHooks": "includes/TabberNeueHooks.php"
+	},
+	"ResourceModules": {
+		"ext.tabberNeue": {
+			"packageFiles": [
+				"ext.tabberNeue.js"
+			],
+			"styles": [
+				"ext.tabberNeue.less"
+			],
+			"dependencies": [
+				"mediawiki.Uri",
+				"mediawiki.util"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
+		"ext.tabberNeue.icons": {
+			"class": "ResourceLoaderImageModule",
+			"selector": ".tabber__header__{name}:after",
+			"images": {
+				"next": {
+					"file": {
+						"ltr": "ext.tabberNeue.icons/next-ltr.svg",
+						"rtl": "ext.tabberNeue.icons/next-rtl.svg"
+					}
+				},
+				"prev": {
+					"file": {
+						"ltr": "ext.tabberNeue.icons/previous-ltr.svg",
+						"rtl": "ext.tabberNeue.icons/previous-rtl.svg"
+					}
+				}
+			}
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "TabberNeue/modules"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"TabberNeue\\TabberNeueHooks::onParserFirstCallInit"
+		]
+	},
+	"manifest_version": 2
+}

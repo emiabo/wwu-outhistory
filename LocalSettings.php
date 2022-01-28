@@ -141,4 +141,20 @@ wfLoadSkin( 'Vector' );
 # Resources/site branding
 $wgFavicon = "$wgResourceBasePath/resources/assets/favicon.ico";
 
+#SKIN OPTIONS
+#$wgCitizenEnableDrawerSiteStats = false; This looks better, but causes an esoteric PHP bug in skin files.
+
 #EXTENSIONS
+wfLoadExtension( 'Cite' );
+wfLoadExtension( 'MultimediaViewer');
+wfLoadExtension( 'PdfHandler' ); # may have dependencies, see manual
+wfLoadExtension( 'Poem' );
+wfLoadExtension( 'WikiEditor' );
+#wfLoadExtension( 'VisualEditor' ); Error contacting the Parsoid/RESTBase server (HTTP 500)
+wfLoadExtension( 'MsUpload' ); # BETA https://www.mediawiki.org/wiki/Extension:MsUpload
+wfLoadExtension( 'TextExtracts' );
+wfLoadExtension( 'PageImages' );
+wfLoadExtension( 'Popups' ); # https://www.mediawiki.org/wiki/Extension:Popups
+wfLoadExtension( 'RelatedArticles' ); # https://www.mediawiki.org/wiki/Extension:RelatedArticles
+wfLoadExtension( 'TabberNeue' ); # https://www.mediawiki.org/wiki/Extension:TabberNeue
+# Possible in future: Translate, UniversalLanguageSelector
