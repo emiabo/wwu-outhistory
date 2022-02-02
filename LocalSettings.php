@@ -19,8 +19,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "WWU OutHistory";
-$wgMetaNamespace = "WWU_OutHistory";
+$wgSitename = "OutHistory Next";
+$wgMetaNamespace = "OutHistory";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -157,7 +157,8 @@ wfLoadExtension( 'PageImages' );
 wfLoadExtension( 'Popups' ); # https://www.mediawiki.org/wiki/Extension:Popups
 wfLoadExtension( 'RelatedArticles' ); # https://www.mediawiki.org/wiki/Extension:RelatedArticles
 wfLoadExtension( 'TabberNeue' ); # https://www.mediawiki.org/wiki/Extension:TabberNeue
-# Possible in future: Translate, UniversalLanguageSelector
+# Possible in future: NoTitle, TemplateWizard, TemplateData, Translate, UniversalLanguageSelector
 
 # MISC CONFIG
 $wgFileExtensions = array_merge( $wgFileExtensions, [ 'pdf', 'txt', 'mp3' ] );
+$wgExternalLinkTarget = '_blank';
