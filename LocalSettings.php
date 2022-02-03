@@ -157,7 +157,11 @@ wfLoadExtension( 'PageImages' );
 wfLoadExtension( 'Popups' ); # https://www.mediawiki.org/wiki/Extension:Popups
 wfLoadExtension( 'RelatedArticles' ); # https://www.mediawiki.org/wiki/Extension:RelatedArticles
 wfLoadExtension( 'TabberNeue' ); # https://www.mediawiki.org/wiki/Extension:TabberNeue
-# Possible in future: NoTitle, TemplateWizard, TemplateData, Translate, UniversalLanguageSelector
+wfLoadExtension( 'NoTitle' ); # https://www.mediawiki.org/wiki/Extension:NoTitle
+$wgRestrictDisplayTitle = false;
+wfLoadExtension( 'TemplateData' );
+wfLoadExtension( 'TemplateWizard' ); # https://www.mediawiki.org/wiki/Extension:TemplateWizard
+# Possible in future: Translate, UniversalLanguageSelector
 
 # MISC CONFIG
 $wgFileExtensions = array_merge( $wgFileExtensions, [ 'pdf', 'txt', 'mp3' ] );
