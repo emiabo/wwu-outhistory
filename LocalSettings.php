@@ -161,6 +161,7 @@ wfLoadExtension( 'NoTitle' ); # https://www.mediawiki.org/wiki/Extension:NoTitle
 $wgRestrictDisplayTitle = false;
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TemplateWizard' ); # https://www.mediawiki.org/wiki/Extension:TemplateWizard
+wfLoadExtension( 'InputBox' );
 # Possible in future: Translate, UniversalLanguageSelector
 
 # MISC CONFIG
