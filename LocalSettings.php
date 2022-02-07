@@ -162,6 +162,7 @@ $wgRestrictDisplayTitle = false;
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TemplateWizard' ); # https://www.mediawiki.org/wiki/Extension:TemplateWizard
 wfLoadExtension( 'InputBox' );
+wfLoadExtension( 'TemplateStyles' ); # https://www.mediawiki.org/wiki/Extension:TemplateStyles
 # Possible in future: Translate, UniversalLanguageSelector
 
 # MISC CONFIG
