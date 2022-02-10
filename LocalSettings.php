@@ -140,6 +140,22 @@ wfLoadSkin( 'Vector' );
 # Add more configuration options below.
 # Resources/site branding
 $wgFavicon = "$wgResourceBasePath/resources/assets/favicon.ico";
+$wgFooterIcons['copyright']['cc-by-sa'] = [
+	"src" => "$wgResourceBasePath/resources/assets/licenses/cc-by-sa.png",
+	"url" => "https://creativecommons.org/licenses/by-sa/4.0/",
+	"alt" => "Creative Commons Attribution-ShareAlike",
+	/* If you have a non-default sized icon you can specify the size yourself.
+	"height" => "31",
+	"width" => "88",*/
+];
+$wgFooterIcons['poweredby']['fundny'] = [
+	"src" => "$wgResourceBasePath/resources/assets/FundCityofNY.png",
+	"url" => "https://www.fcny.org/fcny/",
+	"alt" => "Support provided by the Fund for the City of New York, through a grant from its Partner Project OutHistory.org.",
+	/* If you have a non-default sized icon you can specify the size yourself.
+	"height" => "31",
+	"width" => "88",*/
+];
 
 #SKIN OPTIONS
 #$wgCitizenEnableDrawerSiteStats = false; This looks better, but causes an esoteric PHP bug in skin files.
@@ -163,6 +179,8 @@ wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TemplateWizard' ); # https://www.mediawiki.org/wiki/Extension:TemplateWizard
 wfLoadExtension( 'InputBox' );
 wfLoadExtension( 'TemplateStyles' ); # https://www.mediawiki.org/wiki/Extension:TemplateStyles
+wfLoadExtension( 'CodeEditor' );
+wfLoadExtension( 'Scribunto' );
 # Possible in future: Translate, UniversalLanguageSelector
 
 # MISC CONFIG
