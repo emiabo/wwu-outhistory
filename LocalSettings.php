@@ -140,6 +140,7 @@ wfLoadSkin( 'Vector' );
 # Add more configuration options below.
 # Resources/site branding
 $wgFavicon = "$wgResourceBasePath/resources/assets/favicon.ico";
+$wgAppleTouchIcon = "$wgResourceBasePath/resources/assets/apple-touch-icon.png";
 $wgFooterIcons['copyright']['cc-by-sa'] = [
 	"src" => "$wgResourceBasePath/resources/assets/licenses/cc-by-sa.png",
 	"url" => "https://creativecommons.org/licenses/by-sa/4.0/",
@@ -179,9 +180,11 @@ wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TemplateWizard' ); # https://www.mediawiki.org/wiki/Extension:TemplateWizard
 wfLoadExtension( 'InputBox' );
 wfLoadExtension( 'TemplateStyles' ); # https://www.mediawiki.org/wiki/Extension:TemplateStyles
+wfLoadExtension( 'TemplateStylesExtender' ); # https://www.mediawiki.org/wiki/Extension:TemplateStylesExtender
 wfLoadExtension( 'CodeEditor' );
 wfLoadExtension( 'Scribunto' );
-# Possible in future: Translate, UniversalLanguageSelector
+wfLoadExtension( 'CustomSubtitle' ); # BETA https://www.mediawiki.org/wiki/Extension:CustomSubtitle
+wfLoadExtension( 'UniversalLanguageSelector' ); # https://www.mediawiki.org/wiki/Extension:UniversalLanguageSelector
 
 # MISC CONFIG
 $wgFileExtensions = array_merge( $wgFileExtensions, [ 'pdf', 'txt', 'mp3' ] );
