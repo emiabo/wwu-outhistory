@@ -185,6 +185,7 @@ wfLoadExtension( 'CodeEditor' );
 wfLoadExtension( 'Scribunto' );
 wfLoadExtension( 'CustomSubtitle' ); # BETA https://www.mediawiki.org/wiki/Extension:CustomSubtitle
 wfLoadExtension( 'UniversalLanguageSelector' ); # https://www.mediawiki.org/wiki/Extension:UniversalLanguageSelector
+wfLoadExtension( 'ParserFunctions' );
 
 # MISC CONFIG
 $wgFileExtensions = array_merge( $wgFileExtensions, [ 'pdf', 'txt', 'mp3' ] );
