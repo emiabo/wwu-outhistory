@@ -186,7 +186,11 @@ wfLoadExtension( 'Scribunto' );
 wfLoadExtension( 'CustomSubtitle' ); # BETA https://www.mediawiki.org/wiki/Extension:CustomSubtitle
 wfLoadExtension( 'UniversalLanguageSelector' ); # https://www.mediawiki.org/wiki/Extension:UniversalLanguageSelector
 wfLoadExtension( 'ParserFunctions' );
+/*wfLoadExtension( 'TimedMediaHandler' ); # https://www.mediawiki.org/wiki/Extension:TimedMediaHandler
+$wgFFmpegLocation = 'C:\ProgramData\chocolatey\lib\ffmpeg\tools\ffmpeg\bin'; # Required for auto-transcoding
+wfLoadExtension( 'EmbedVideo' ); # https://www.mediawiki.org/wiki/Extension:EmbedVideo */
 
 # MISC CONFIG
-$wgFileExtensions = array_merge( $wgFileExtensions, [ 'pdf', 'txt', 'mp3' ] );
+$wgFileExtensions = array_merge( $wgFileExtensions, [ 'pdf', 'txt', 'doc', 'docx', 'ppt', 'pptx' ] );
 $wgExternalLinkTarget = '_blank';
+$wgAllowExternalImages = true; # insecure, consider $wgAllowExternalImagesFrom = [];

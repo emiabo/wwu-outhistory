@@ -1,0 +1,131 @@
+@import 'mediawiki.mixins';
+
+/* Shrink videos to fit rather than overflowing containers */
+video {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+}
+
+/* Force a fixed size for audio to reduce FOUC */
+audio,
+.mw-tmh-player.audio {
+	width: 220px;
+	height: 30px;
+}
+/* Galleryboxes are usually smaller than 220px, but can be different sizes. (T258622) */
+.gallerybox .mw-tmh-player.audio {
+	width: 90%;
+}
+
+.mw-tmh-player {
+	display: inline-block;
+	position: relative;
+
+	.mw-tmh-play {
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+}
+
+.mw-tmh-player.video > .mw-tmh-play {
+	/* @embed */
+	transition: background-color 120ms linear, opacity 100ms ease;
+	opacity: 0.6;
+
+	.mw-tmh-play-icon {
+		/* @embed */
+		background: rgba( 0, 0, 0, 0.6 ) url( play-invert.svg ) 12px 10px no-repeat;
+		background-position: center;
+		margin: auto;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+}
+
+.mw-tmh-player.audio > .mw-tmh-play {
+	/* @embed */
+	.background-image( 'play-audio.svg' );
+	opacity: 0.5;
+}
+
+.mw-tmh-player.video > .mw-tmh-play:hover,
+.mw-tmh-player.video > .mw-tmh-play:active,
+.mw-tmh-player.audio > .mw-tmh-play:hover,
+.mw-tmh-player.audio > .mw-tmh-play:active {
+	opacity: 1;
+}
+
+.mw-tmh-player-interstitial {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: rgba( 255, 255, 255, 0.5 );
+	text-align: center;
+}
+
+.mw-tmh-player-progress {
+	// Duplicated from OOUI's ProgressBar widget
+	// Needed since we have to use it before loading OOUI
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	max-width: 50em;
+	background-color: #fff;
+	border: 1px solid #a2a9b1;
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.mw-tmh-player-progress-bar {
+	height: 1em;
+	-webkit-transition: width 100ms;
+	transition: width 100ms;
+
+	// Indeterminate mode animation
+	-webkit-animation: mw-tmh-player-progress-bar-slide 2s infinite linear;
+	animation: mw-tmh-player-progress-bar-slide 2s infinite linear;
+	width: 40%;
+	-webkit-transform: translate( -25% );
+	-ms-transform: translate( -25% );
+	transform: translate( -25% );
+
+	// Enabled.
+	background-color: #36c;
+}
+
+@-webkit-keyframes mw-tmh-player-progress-bar-slide {
+	from {
+		-webkit-transform: translate( -100% );
+	}
+
+	to {
+		-webkit-transform: translate( 350% );
+	}
+}
+
+@keyframes mw-tmh-player-progress-bar-slide {
+	from {
+		-webkit-transform: translate( -100% );
+		-ms-transform: translate( -100% );
+		transform: translate( -100% );
+	}
+
+	to {
+		-webkit-transform: translate( 350% );
+		-ms-transform: translate( 350% );
+		transform: translate( 350% );
+	}
+}
