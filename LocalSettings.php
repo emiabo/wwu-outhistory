@@ -187,7 +187,7 @@ wfLoadExtension( 'CustomSubtitle' ); # BETA https://www.mediawiki.org/wiki/Exten
 wfLoadExtension( 'UniversalLanguageSelector' ); # https://www.mediawiki.org/wiki/Extension:UniversalLanguageSelector
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'TimedMediaHandler' ); # https://www.mediawiki.org/wiki/Extension:TimedMediaHandler
-$wgFFmpegLocation = 'C:\ProgramData\chocolatey\lib\ffmpeg\tools\ffmpeg\bin'; # Required for auto-transcoding
+
 #wfLoadExtension( 'EmbedVideo' ); # https://www.mediawiki.org/wiki/Extension:EmbedVideo Deprecated error
 wfLoadExtension( 'Widgets' );
 
@@ -195,3 +195,10 @@ wfLoadExtension( 'Widgets' );
 $wgFileExtensions = array_merge( $wgFileExtensions, [ 'pdf', 'txt', 'doc', 'docx', 'ppt', 'pptx' ] );
 $wgExternalLinkTarget = '_blank';
 $wgAllowExternalImages = true; # insecure, consider $wgAllowExternalImagesFrom = [];
+
+# Media handling config
+$wgFFmpegLocation = 'C:\ProgramData\chocolatey\lib\ffmpeg\tools\ffmpeg\bin\ffmpeg.exe'; # Required for auto-transcoding
+$wgUploadSizeWarning = 2147483647;
+$wgMaxUploadSize = 2147483647;
+$wgTmhEnableMp4Uploads = true;
+$wgUseFFmpeg2 = true;
