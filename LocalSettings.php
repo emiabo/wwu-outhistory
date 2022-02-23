@@ -77,7 +77,7 @@ $wgMemCachedServers = [];
 ## is writable, then set this to true:
 $wgEnableUploads = true;
 $wgUseImageMagick = true;
-#$wgImageMagickConvertCommand = "/usr/bin/convert";
+$wgImageMagickConvertCommand = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\magick.exe";
 
 # InstantCommons allows wiki to use images from https://commons.wikimedia.org
 $wgUseInstantCommons = true;
@@ -197,17 +197,18 @@ $wgExternalLinkTarget = '_blank';
 $wgAllowExternalImages = true; # insecure, consider $wgAllowExternalImagesFrom = [];
 
 # Media handling config
-$wgFFmpegLocation = 'C:\ProgramData\chocolatey\lib\ffmpeg\tools\ffmpeg\bin\ffmpeg.exe'; # Required for auto-transcoding
+$wgEnableTranscode = false; # doesn't work anyway
+$wgFFmpegLocation = "C:\\ProgramData\\chocolatey\\lib\\ffmpeg\\tools\\ffmpeg\\bin\\ffmpeg.exe"; # Required for auto-transcoding
 $wgUploadSizeWarning = 2147483647;
 $wgMaxUploadSize = 2147483647;
 $wgTmhEnableMp4Uploads = true;
 $wgUseFFmpeg2 = true;
 
 # PDF handling config
-$wgPdfProcessor = "C:\Program Files\gs\gs9.55.0\bin\gswin64.exe";
-$wgPdfPostProcessor = "C:\Program Files\ImageMagick-7.1.0-Q16-HDRI\magick.exe";
-$wgPdfInfo = "C:\ProgramData\chocolatey\lib\xpdf-utils\tools\xpdfbin-win-3.04\bin64\pdfinfo.exe";
-$wgPdftoText = "C:\ProgramData\chocolatey\lib\xpdf-utils\tools\xpdfbin-win-3.04\bin64\pdftotext.exe";
+$wgPdfProcessor = "C:\\Program Files\\gs\\gs9.55.0\\bin\\gswin64.exe";
+$wgPdfPostProcessor = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\magick.exe";
+$wgPdfInfo = "C:\\ProgramData\\chocolatey\\lib\\xpdf-utils\\tools\\xpdfbin-win-3.04\\bin64\\pdfinfo.exe";
+$wgPdftoText = "C:\\ProgramData\\chocolatey\\lib\\xpdf-utils\\tools\\xpdfbin-win-3.04\\bin64\\pdftotext.exe";
 
 # Debug
 #$wgDebugToolbar = true;
