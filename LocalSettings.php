@@ -187,7 +187,6 @@ wfLoadExtension( 'CustomSubtitle' ); # BETA https://www.mediawiki.org/wiki/Exten
 wfLoadExtension( 'UniversalLanguageSelector' ); # https://www.mediawiki.org/wiki/Extension:UniversalLanguageSelector
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'TimedMediaHandler' ); # https://www.mediawiki.org/wiki/Extension:TimedMediaHandler
-
 #wfLoadExtension( 'EmbedVideo' ); # https://www.mediawiki.org/wiki/Extension:EmbedVideo Deprecated error
 wfLoadExtension( 'Widgets' );
 
