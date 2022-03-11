@@ -167,7 +167,7 @@ wfLoadExtension( 'MultimediaViewer');
 wfLoadExtension( 'PdfHandler' ); # may have dependencies, see manual
 wfLoadExtension( 'Poem' );
 wfLoadExtension( 'WikiEditor' );
-#wfLoadExtension( 'VisualEditor' ); Error contacting the Parsoid/RESTBase server (HTTP 500)
+wfLoadExtension( 'VisualEditor' ); # Error contacting the Parsoid/RESTBase server (HTTP 500)
 wfLoadExtension( 'MsUpload' ); # BETA https://www.mediawiki.org/wiki/Extension:MsUpload
 wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'PageImages' );
@@ -189,6 +189,9 @@ wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'TimedMediaHandler' ); # https://www.mediawiki.org/wiki/Extension:TimedMediaHandler
 #wfLoadExtension( 'EmbedVideo' ); # https://www.mediawiki.org/wiki/Extension:EmbedVideo Deprecated error
 wfLoadExtension( 'Widgets' );
+wfLoadExtension( 'CategoryTree' );
+wfLoadExtension( 'WikiCategoryTagCloud' ); # https://www.mediawiki.org/wiki/Extension:WikiCategoryTagCloud
+# wfLoadExtension( 'MediaSearch' ); # https://www.mediawiki.org/wiki/Extension:MediaSearch
 
 # MISC CONFIG
 $wgFileExtensions = array_merge( $wgFileExtensions, [ 'pdf', 'txt', 'doc', 'docx', 'ppt', 'pptx' ] );
@@ -209,5 +212,9 @@ $wgPdfPostProcessor = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\magick.exe
 $wgPdfInfo = "C:\\ProgramData\\chocolatey\\lib\\xpdf-utils\\tools\\xpdfbin-win-3.04\\bin64\\pdfinfo.exe";
 $wgPdftoText = "C:\\ProgramData\\chocolatey\\lib\\xpdf-utils\\tools\\xpdfbin-win-3.04\\bin64\\pdftotext.exe";
 
-# Debug
-#$wgDebugToolbar = true;
+# VisualEditor debugging
+$wgGroupPermissions['user']['writeapi'] = true;
+if ( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' ) {
+	$wgGroupPermissions['*']['read'] = true;
+	$wgGroupPermissions['*']['edit'] = true;
+}
