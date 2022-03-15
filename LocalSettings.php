@@ -192,6 +192,10 @@ wfLoadExtension( 'Widgets' );
 wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'WikiCategoryTagCloud' ); # https://www.mediawiki.org/wiki/Extension:WikiCategoryTagCloud
 # wfLoadExtension( 'MediaSearch' ); # https://www.mediawiki.org/wiki/Extension:MediaSearch
+wfLoadExtension( 'Lockdown' );
+#wfLoadExtension( 'BlueSpiceUserManager' ); Requres https://www.mediawiki.org/wiki/Extension:BlueSpiceFoundation
+#wfLoadExtension( 'BlueSpiceGroupManager' );
+#wfLoadExtension( 'BlueSpicePermissionManager' );
 
 # MISC CONFIG
 $wgFileExtensions = array_merge( $wgFileExtensions, [ 'pdf', 'txt', 'doc', 'docx', 'ppt', 'pptx' ] );
@@ -218,3 +222,22 @@ if ( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' ) {
 	$wgGroupPermissions['*']['read'] = true;
 	$wgGroupPermissions['*']['edit'] = true;
 }
+
+# Permissions config & private namespaces
+$wgGroupPermissions['*']['edit'] = false;
+
+// define constants for your custom namespaces, for a more readable configuration
+define('NS_PRIVATE', 100);
+define('NS_PRIVATE_TALK', 101);
+
+// define custom namespaces
+$wgExtraNamespaces[NS_PRIVATE] = 'Private';
+$wgExtraNamespaces[NS_PRIVATE_TALK] = 'Private_talk';
+
+// restrict "read" permission to logged in users
+$wgNamespacePermissionLockdown[NS_PRIVATE]['read'] = [ 'contributor' ];
+$wgNamespacePermissionLockdown[NS_PRIVATE_TALK]['read'] = [ 'contributor' ];
+
+// prevent inclusion of pages from that namespace
+$wgNonincludableNamespaces[] = NS_PRIVATE;
+$wgNonincludableNamespaces[] = NS_PRIVATE_TALK;
