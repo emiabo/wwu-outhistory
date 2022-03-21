@@ -1,0 +1,20 @@
+<noinclude>
+The full-width features panel at the top of the Main Page.
+Currently supports a single featured content view, but could become am interactive slideshow.
+==Required parameters==
+bgimage - default: a solid color or gradient
+imagealt
+title
+subtitle
+url
+</noinclude>
+<includeonly>
+<div class="HomeHero-container">
+    <a class="HomeHero-link" href="{{{url}}}">
+        <img class="HomeHero-bgimage" src="{{{bgimage}}}" alt="{{{imagealt}}}">
+        <div class="HomeHero-title">{{{title}}}</div>
+        <div class="HomeHero-subtitle">{{{subtitle}}}</div>
+    </a>
+</div>
+<templatestyles src="Template:HomeHero/styles.css" />
+</includeonly>
