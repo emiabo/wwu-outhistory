@@ -10,10 +10,16 @@ url
 </noinclude>
 <includeonly>
 <div class="HomeHero-container">
-    <a class="HomeHero-link" href="{{{url}}}">
-        <img class="HomeHero-bgimage" src="{{{bgimage}}}" alt="{{{imagealt}}}">
+    <div class="HomeHero-background">
+    
+    </div>
+    <div class="HomeHero-foreground">
         <div class="HomeHero-title">{{{title}}}</div>
         <div class="HomeHero-subtitle">{{{subtitle}}}</div>
+    </div>
+    
+    <a class="HomeHero-link" href="{{{url}}}">
+        <img class="HomeHero-bgimage" src="{{{bgimage}}}" alt="{{{imagealt}}}">
     </a>
 </div>
 <templatestyles src="Template:HomeHero/styles.css" />

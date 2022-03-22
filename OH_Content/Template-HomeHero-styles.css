@@ -2,7 +2,6 @@
     font-family: sans-serif;
     color: white;
     background-color: #666666;
-    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
     height: 50vh; /*TODO Revise this sizing*/
     border-radius: 10px;
     overflow: hidden;
@@ -13,10 +12,21 @@
     font-size: 2rem;
 }
 .HomeHero-subtitle {
-    /*TODO Check readability of this subtitle style*/
     font-weight: 300;
-    color:#c2c2c2;
+    color:#ababab;
 }
 .HomeHero-bgimage {
-/*TODO Position in center of image, enlarge on hover, full width no repeat*/
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .2s ease;
+    z-index: -1;
+}
+.HomeHero-bgimage:hover {
+    transform: scale(1.1);
+}
+.HomeHero-bgimage::after {
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
 }
