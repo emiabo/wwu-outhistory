@@ -160,6 +160,7 @@ $wgFooterIcons['poweredby']['fundny'] = [
 
 #SKIN OPTIONS
 #$wgCitizenEnableDrawerSiteStats = false; This looks better, but causes an esoteric PHP bug in skin files.
+$wgCitizenShowPageTools = 'login';
 
 #EXTENSIONS
 wfLoadExtension( 'Cite' );
