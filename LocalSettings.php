@@ -76,7 +76,7 @@ $wgMemCachedServers = [];
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
 $wgEnableUploads = true;
-$wgUseImageMagick = true;
+$wgUseImageMagick = true; # Supposed to generate image thumbnails
 $wgImageMagickConvertCommand = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\magick.exe";
 
 # InstantCommons allows wiki to use images from https://commons.wikimedia.org
@@ -153,13 +153,11 @@ $wgFooterIcons['poweredby']['fundny'] = [
 ];
 
 #SKIN OPTIONS
-#$wgCitizenEnableDrawerSiteStats = false; This looks better, but causes an esoteric PHP bug in skin files.
-$wgCitizenShowPageTools = 'login';
+$wgCitizenShowPageTools = 'login'; # Hides edit buttons for logged out users
 
 #EXTENSIONS
 wfLoadExtension( 'Cite' );
 wfLoadExtension( 'MultimediaViewer');
-wfLoadExtension( 'PdfHandler' ); # may have dependencies, see manual
 wfLoadExtension( 'Poem' );
 wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'VisualEditor' ); # Error contacting the Parsoid/RESTBase server (HTTP 500)
@@ -169,8 +167,6 @@ wfLoadExtension( 'PageImages' );
 wfLoadExtension( 'Popups' ); # https://www.mediawiki.org/wiki/Extension:Popups
 wfLoadExtension( 'RelatedArticles' ); # https://www.mediawiki.org/wiki/Extension:RelatedArticles
 wfLoadExtension( 'TabberNeue' ); # https://www.mediawiki.org/wiki/Extension:TabberNeue
-wfLoadExtension( 'NoTitle' ); # https://www.mediawiki.org/wiki/Extension:NoTitle
-$wgRestrictDisplayTitle = false;
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TemplateWizard' ); # https://www.mediawiki.org/wiki/Extension:TemplateWizard
 wfLoadExtension( 'InputBox' );
@@ -182,57 +178,17 @@ wfLoadExtension( 'CustomSubtitle' ); # BETA https://www.mediawiki.org/wiki/Exten
 wfLoadExtension( 'UniversalLanguageSelector' ); # https://www.mediawiki.org/wiki/Extension:UniversalLanguageSelector
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'TimedMediaHandler' ); # https://www.mediawiki.org/wiki/Extension:TimedMediaHandler
-#wfLoadExtension( 'EmbedVideo' ); # https://www.mediawiki.org/wiki/Extension:EmbedVideo Deprecated error
 wfLoadExtension( 'Widgets' );
 wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'WikiCategoryTagCloud' ); # https://www.mediawiki.org/wiki/Extension:WikiCategoryTagCloud
-# wfLoadExtension( 'MediaSearch' ); # https://www.mediawiki.org/wiki/Extension:MediaSearch
-wfLoadExtension( 'Lockdown' );
-#wfLoadExtension( 'BlueSpiceUserManager' ); Requres https://www.mediawiki.org/wiki/Extension:BlueSpiceFoundation
-#wfLoadExtension( 'BlueSpiceGroupManager' );
-#wfLoadExtension( 'BlueSpicePermissionManager' );
+
+# USER MANAGEMENT
+$wgGroupPermissions['*']['edit'] = false;
 
 # MISC CONFIG
 $wgFileExtensions = array_merge( $wgFileExtensions, [ 'pdf', 'txt', 'doc', 'docx', 'ppt', 'pptx' ] );
 $wgExternalLinkTarget = '_blank';
-$wgAllowExternalImages = true; # insecure, consider $wgAllowExternalImagesFrom = [];
-
-# Media handling config
-$wgEnableTranscode = false; # doesn't work anyway
-$wgFFmpegLocation = "C:\\ProgramData\\chocolatey\\lib\\ffmpeg\\tools\\ffmpeg\\bin\\ffmpeg.exe"; # Required for auto-transcoding
+$wgRestrictDisplayTitle = false;
 $wgUploadSizeWarning = 2147483647;
 $wgMaxUploadSize = 2147483647;
 $wgTmhEnableMp4Uploads = true;
-$wgUseFFmpeg2 = true;
-
-# PDF handling config
-$wgPdfProcessor = "C:\\Program Files\\gs\\gs9.55.0\\bin\\gswin64.exe";
-$wgPdfPostProcessor = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\magick.exe";
-$wgPdfInfo = "C:\\ProgramData\\chocolatey\\lib\\xpdf-utils\\tools\\xpdfbin-win-3.04\\bin64\\pdfinfo.exe";
-$wgPdftoText = "C:\\ProgramData\\chocolatey\\lib\\xpdf-utils\\tools\\xpdfbin-win-3.04\\bin64\\pdftotext.exe";
-
-# VisualEditor debugging
-$wgGroupPermissions['user']['writeapi'] = true;
-if ( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' ) {
-	$wgGroupPermissions['*']['read'] = true;
-	$wgGroupPermissions['*']['edit'] = true;
-}
-
-# Permissions config & private namespaces
-$wgGroupPermissions['*']['edit'] = false;
-
-// define constants for your custom namespaces, for a more readable configuration
-define('NS_PRIVATE', 100);
-define('NS_PRIVATE_TALK', 101);
-
-// define custom namespaces
-$wgExtraNamespaces[NS_PRIVATE] = 'Private';
-$wgExtraNamespaces[NS_PRIVATE_TALK] = 'Private_talk';
-
-// restrict "read" permission to logged in users
-$wgNamespacePermissionLockdown[NS_PRIVATE]['read'] = [ 'contributor' ];
-$wgNamespacePermissionLockdown[NS_PRIVATE_TALK]['read'] = [ 'contributor' ];
-
-// prevent inclusion of pages from that namespace
-$wgNonincludableNamespaces[] = NS_PRIVATE;
-$wgNonincludableNamespaces[] = NS_PRIVATE_TALK;
