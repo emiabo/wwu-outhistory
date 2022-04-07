@@ -19,7 +19,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "OutHistory Next";
+$wgSitename = "OutHistory";
 $wgMetaNamespace = "OutHistory";
 
 ## The URL base path to the directory containing the wiki;
@@ -132,30 +132,24 @@ $wgDefaultSkin = "citizen";
 
 # Enabled skins.
 # The following skins were automatically enabled:
-wfLoadSkin( 'Citizen' );
+wfLoadSkin( 'Citizen' ); # Download https://github.com/StarCitizenTools/mediawiki-skins-Citizen
 wfLoadSkin( 'Vector' );
 
 
 # End of automatically generated settings.
 # Add more configuration options below.
-# Resources/site branding
+# RESOURCES/SITE BRANDING
 $wgFavicon = "$wgResourceBasePath/resources/assets/favicon.ico";
 $wgAppleTouchIcon = "$wgResourceBasePath/resources/assets/apple-touch-icon.png";
 $wgFooterIcons['copyright']['cc-by-sa'] = [
 	"src" => "$wgResourceBasePath/resources/assets/licenses/cc-by-sa.png",
 	"url" => "https://creativecommons.org/licenses/by-sa/4.0/",
 	"alt" => "Creative Commons Attribution-ShareAlike",
-	/* If you have a non-default sized icon you can specify the size yourself.
-	"height" => "31",
-	"width" => "88",*/
 ];
 $wgFooterIcons['poweredby']['fundny'] = [
 	"src" => "$wgResourceBasePath/resources/assets/FundCityofNY.png",
 	"url" => "https://www.fcny.org/fcny/",
 	"alt" => "Support provided by the Fund for the City of New York, through a grant from its Partner Project OutHistory.org.",
-	/* If you have a non-default sized icon you can specify the size yourself.
-	"height" => "31",
-	"width" => "88",*/
 ];
 
 #SKIN OPTIONS
