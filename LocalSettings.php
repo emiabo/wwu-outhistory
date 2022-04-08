@@ -181,9 +181,28 @@ wfLoadExtension( 'TimedMediaHandler' ); # https://www.mediawiki.org/wiki/Extensi
 wfLoadExtension( 'Widgets' );
 wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'WikiCategoryTagCloud' ); # https://www.mediawiki.org/wiki/Extension:WikiCategoryTagCloud
-
+wfLoadExtension( 'ConfirmAccount' ); # https://www.mediawiki.org/wiki/Extension:ConfirmAccount
 # USER MANAGEMENT
-$wgGroupPermissions['*']['edit'] = false;
+## Hides wiki publicly except for specified pages
+$wgGroupPermissions['*']['read'] = false;
+$wgWhitelistRead = [ "Home", "Special:RequestAccount", "Special:CreateAccount" ];
+## Restrict account creation process
+$wgGroupPermissions['*']['createaccount'] = false;
+$wgGroupPermissions['sysop']['createaccount'] = true;
+$wgGroupPermissions['bureaucrat']['createaccount'] = true;
+$wgConfirmAccountRequestFormItems = [
+	'UserName'        => [ 'enabled' => true ],
+	'RealName'        => [ 'enabled' => false ],
+	'Biography'       => [ 'enabled' => true, 'minWords' => 0 ],
+	'AreasOfInterest' => [ 'enabled' => true ],
+	'CV'              => [ 'enabled' => false ],
+	'Notes'           => [ 'enabled' => true ],
+	'Links'           => [ 'enabled' => false ],
+	'TermsOfService'  => [ 'enabled' => false ],
+];
+## Editing rights
+$wgGroupPermissions['user']['edit'] = false;
+$wgGroupPermissions['contributor']['edit'] = true;
 
 # MISC CONFIG
 $wgFileExtensions = array_merge( $wgFileExtensions, [ 'pdf', 'txt', 'doc', 'docx', 'ppt', 'pptx' ] );

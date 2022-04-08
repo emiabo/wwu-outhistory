@@ -1,0 +1,7 @@
+'''This page is used to confirm pending account requests at ''{{SITENAME}}'''''.
+
+Each account request queue consists of three subqueues.
+One for open request, one for those that have been put on hold by other administrators pending further information, and another for recently rejected requests.
+When responding to a request, carefully review it and, if needed, confirm the information contain therein.
+
+If an approved user needs to edit, don't forget to assign them to the Contributor group at [[Special:UserRights]]!
