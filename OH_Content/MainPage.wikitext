@@ -1,2 +1,8 @@
 --WIKITEXT--
 {{DISPLAYTITLE:<span style="font-weight:300;"><span style="font-weight:900;color:#bb1273;">Out</span>History</span>}}
+{{HomeHero
+|bgimage=http://localhost/wwuouthistory/images/5/50/AIDS_Quilt_DC_1987.jpg
+|imagealt=A quilt several hundred feet in size laid out before the Capitol Building in Washington, DC. Squares on the quilt memorialize people dead of AIDS.
+|url=http://localhost/wwuouthistory/index.php/HIV/AIDS_Activism
+|title=A page title
+|subtitle=Lorem ipsum dolor sit amet}}

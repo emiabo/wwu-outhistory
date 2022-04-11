@@ -1,19 +1,11 @@
 .HomeHero-container {
-    font-family: sans-serif;
+    font-family: var(--font-family-base);
     color: white;
-    background-color: #666666;
+    background-color: var(--color-surface-1);
     height: 50vh; /*TODO Revise this sizing*/
     border-radius: 10px;
     overflow: hidden;
     /*TODO Ensure gradient goes behind text but in front of image (z-index)*/
-}
-.HomeHero-title {
-    font-weight: bold;
-    font-size: 2rem;
-}
-.HomeHero-subtitle {
-    font-weight: 300;
-    color:#ababab;
 }
 .HomeHero-bgimage {
     width: 100%;
@@ -29,4 +21,15 @@
 }
 .HomeHero-bgimage::after {
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+.HomeHero-link {
+    display: block;
+}
+.HomeHero-title {
+    font-weight: bold;
+    font-size: 2rem;
+}
+.HomeHero-subtitle {
+    font-weight: 300;
+    color:#ababab;
 }
