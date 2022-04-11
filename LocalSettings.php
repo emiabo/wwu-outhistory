@@ -160,7 +160,7 @@ wfLoadExtension( 'Cite' );
 wfLoadExtension( 'MultimediaViewer');
 wfLoadExtension( 'Poem' );
 wfLoadExtension( 'WikiEditor' );
-wfLoadExtension( 'VisualEditor' ); # Error contacting the Parsoid/RESTBase server (HTTP 500)
+# wfLoadExtension( 'VisualEditor' ); # Error contacting the Parsoid/RESTBase server (HTTP 500)
 wfLoadExtension( 'MsUpload' ); # BETA https://www.mediawiki.org/wiki/Extension:MsUpload
 wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'PageImages' );
