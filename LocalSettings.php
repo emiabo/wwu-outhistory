@@ -185,7 +185,7 @@ wfLoadExtension( 'ConfirmAccount' ); # https://www.mediawiki.org/wiki/Extension:
 # USER MANAGEMENT
 ## Hides wiki publicly except for specified pages
 $wgGroupPermissions['*']['read'] = false;
-$wgWhitelistRead = [ "Home", "Special:RequestAccount", "Special:CreateAccount" ];
+$wgWhitelistRead = [ "OutHistory", "Special:RequestAccount", "Special:CreateAccount" ];
 ## Restrict account creation process
 $wgGroupPermissions['*']['createaccount'] = false;
 $wgGroupPermissions['sysop']['createaccount'] = true;
