@@ -46,17 +46,17 @@ Here are all the extensions and what they do. Items in **bold** are not included
 - CategoryTree: displays categories and pages within them in a tree
 - **WikiCategoryTagCloud**: displays most popular categories across the site in a word cloud
 - **ConfirmAccount**: creates a "request account" form and approval queue for sysops
+- **Lockdown**: allows restricting namespaces and special pages to certain user groups.
 ## User rights
-For the staging site, users will have the following permissions:
+For the site, users will have the following permissions:
 |                                   | * (Anonymous/logged out) | user | contributor | bureaucrat | sysop + interface-admin |
 |-----------------------------------|--------------------------|------|-------------|------------|-------------------------|
-| Read/view files                   | no (with exceptions)     | yes  | yes         | yes        | yes                     |
+| Read/view files                   | yes                      | yes  | yes         | yes        | yes                     |
+| Read in Private namespace         | no                       | no   | yes         | yes        | yes                     |
 | Create/edit/upload                | no                       | no   | yes         | yes        | yes                     |
 | Manage users                      | no                       | no   | no          | yes        | yes                     |
 | Edit sitewide content like CSS/JS | no                       | no   | no          | no         | yes                     |
 | Create new accounts               | no                       | no   | no          | yes        | yes                     |
-- Upon visiting the site, all pages will be protected with a "login required" message.
 - Visitors may use the "Request account" form to submit their email address and optionally a short bio for their userpage. An confirmation email will be sent, and if completed they will be added to an approval queue for sysops at Special:ConfirmAccounts. Once a user is approved, they receive a temporary password and their account is created. (Sysops and bureaucrats can create new accounts directly, bypassing this). For more info see [Extension:ConfirmAccounts](https://www.mediawiki.org/wiki/Extension:ConfirmAccount#Usage).
 - If editing access is needed, bureaucrats/sysops must also add the Contributor role to each user with Special:UserRights.
-# Shared database table
-When the wiki is ready to go public, one of the ways we are considering doing it is a separate wiki with a shared user table. [See here for details](https://www.mediawiki.org/wiki/Manual:Shared_database#The_simplest_setup:_A_shared_user_table).
+- **Private** namespace is used for work-in-progress pieces, viewable only by contributors and above. *Uploaded files are always public, but the file list page is blocked as a workaround.*

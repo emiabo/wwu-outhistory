@@ -182,10 +182,8 @@ wfLoadExtension( 'Widgets' );
 wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'WikiCategoryTagCloud' ); # https://www.mediawiki.org/wiki/Extension:WikiCategoryTagCloud
 wfLoadExtension( 'ConfirmAccount' ); # https://www.mediawiki.org/wiki/Extension:ConfirmAccount
+wfLoadExtension( 'Lockdown' ); # https://www.mediawiki.org/wiki/Extension:Lockdown
 # USER MANAGEMENT
-## Hides wiki publicly except for specified pages
-$wgGroupPermissions['*']['read'] = false;
-$wgWhitelistRead = [ "OutHistory", "Special:RequestAccount", "Special:CreateAccount" ];
 ## Restrict account creation process
 $wgGroupPermissions['*']['createaccount'] = false;
 $wgGroupPermissions['sysop']['createaccount'] = true;
@@ -201,8 +199,29 @@ $wgConfirmAccountRequestFormItems = [
 	'TermsOfService'  => [ 'enabled' => false ],
 ];
 ## Editing rights
+$wgGroupPermissions['*']['edit'] = false;
 $wgGroupPermissions['user']['edit'] = false;
 $wgGroupPermissions['contributor']['edit'] = true;
+## Private namespace creation
+// define constants for your custom namespaces, for a more readable configuration
+define('NS_PRIVATE', 100);
+define('NS_PRIVATE_TALK', 101);
+
+// define custom namespaces
+$wgExtraNamespaces[NS_PRIVATE] = 'Private';
+$wgExtraNamespaces[NS_PRIVATE_TALK] = 'Private_talk';
+
+// restrict "read" permission to contributors
+$wgNamespacePermissionLockdown[NS_PRIVATE]['read'] = [ 'contributor' ];
+$wgNamespacePermissionLockdown[NS_PRIVATE_TALK]['read'] = [ 'contributor' ];
+
+// prevent inclusion of pages from that namespace
+$wgNonincludableNamespaces[] = NS_PRIVATE;
+$wgNonincludableNamespaces[] = NS_PRIVATE_TALK;
+
+// restrict special pages that circumvent lockdown (file list)
+// See $specialPageAliases here for proper names https://gerrit.wikimedia.org/g/mediawiki/core/+/HEAD/languages/messages/MessagesEn.php
+$wgSpecialPageLockdown['Listfiles'] = [ 'contributor' ];
 
 # MISC CONFIG
 $wgFileExtensions = array_merge( $wgFileExtensions, [ 'pdf', 'txt', 'doc', 'docx', 'ppt', 'pptx' ] );
