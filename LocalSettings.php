@@ -99,7 +99,8 @@ $wgShellLocale = "C.UTF-8";
 $wgLanguageCode = "en";
 
 # Time zone
-$wgLocaltimezone = "Europe/Berlin";
+$wgLocaltimezone = "America/Los_Angeles";
+//$wgLocaltimezone = "Europe/Berlin";
 
 ## Set $wgCacheDirectory to a writable directory on the web server
 ## to make your wiki go slightly faster. The directory should not
@@ -160,7 +161,6 @@ wfLoadExtension( 'Cite' );
 wfLoadExtension( 'MultimediaViewer');
 wfLoadExtension( 'Poem' );
 wfLoadExtension( 'WikiEditor' );
-# wfLoadExtension( 'VisualEditor' ); # Error contacting the Parsoid/RESTBase server (HTTP 500)
 wfLoadExtension( 'MsUpload' ); # BETA https://www.mediawiki.org/wiki/Extension:MsUpload
 wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'PageImages' );
@@ -184,6 +184,10 @@ wfLoadExtension( 'WikiCategoryTagCloud' ); # https://www.mediawiki.org/wiki/Exte
 wfLoadExtension( 'ConfirmAccount' ); # https://www.mediawiki.org/wiki/Extension:ConfirmAccount
 wfLoadExtension( 'Lockdown' ); # https://www.mediawiki.org/wiki/Extension:Lockdown
 # USER MANAGEMENT
+## Hides entire wiki except for specified pages (comment out once Lockdown is installed)
+//$wgGroupPermissions['*']['read'] = false;
+//$wgWhitelistRead = [ "OutHistory", "Special:RequestAccount", "Special:CreateAccount" ];
+
 ## Restrict account creation process
 $wgGroupPermissions['*']['createaccount'] = false;
 $wgGroupPermissions['sysop']['createaccount'] = true;
@@ -219,7 +223,7 @@ $wgNamespacePermissionLockdown[NS_PRIVATE_TALK]['read'] = [ 'contributor' ];
 $wgNonincludableNamespaces[] = NS_PRIVATE;
 $wgNonincludableNamespaces[] = NS_PRIVATE_TALK;
 
-// restrict special pages that circumvent lockdown (file list)
+// restrict special pages that circumvent lockdown (file list), update as needed
 // See $specialPageAliases here for proper names https://gerrit.wikimedia.org/g/mediawiki/core/+/HEAD/languages/messages/MessagesEn.php
 $wgSpecialPageLockdown['Listfiles'] = [ 'contributor' ];
 
