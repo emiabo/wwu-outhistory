@@ -48,6 +48,8 @@ Here are all the extensions and what they do. Items in **bold** are not included
 - **WikiCategoryTagCloud**: displays most popular categories across the site in a word cloud
 - **ConfirmAccount**: creates a "request account" form and approval queue for sysops
 - **Lockdown**: allows restricting namespaces and special pages to certain user groups.
+- **Cargo**: a system for attaching metadata to wiki pages via templates and querying them in various ways (EXPERIMENTAL)
+- **PageForms**: helper for Cargo, provides more user-friendly forms for creating and editing the data templates
 ## User rights
 For the site, users will have the following permissions:
 |                                   | * (Anonymous/logged out) | user | contributor | bureaucrat | sysop + interface-admin |

@@ -183,6 +183,16 @@ wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'WikiCategoryTagCloud' ); # https://www.mediawiki.org/wiki/Extension:WikiCategoryTagCloud
 wfLoadExtension( 'ConfirmAccount' ); # https://www.mediawiki.org/wiki/Extension:ConfirmAccount
 wfLoadExtension( 'Lockdown' ); # https://www.mediawiki.org/wiki/Extension:Lockdown
+wfLoadExtension( 'Cargo' ); # EXPERIMENTAL https://www.mediawiki.org/wiki/Extension:Cargo
+wfLoadExtension( 'PageForms' ); # EXPERIMENTAL https://www.mediawiki.org/wiki/Extension:Page_Forms
+# CARGO CONFIG
+## Separate database table for Cargo metadata (to protect integrity of main wiki data)
+$wgCargoDBtype = "mysql";
+$wgCargoDBserver = "localhost";
+$wgCargoDBname = "ohcargodata";
+$wgCargoDBuser = "OHadmin";
+$wgCargoDBpassword = "dwey8klay.weep";
+
 # USER MANAGEMENT
 ## Hides entire wiki except for specified pages (comment out once Lockdown is installed)
 //$wgGroupPermissions['*']['read'] = false;
